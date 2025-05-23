@@ -1,0 +1,57 @@
+.title{
+    display: flex;
+    color: white;
+    font-size: 40px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    font-weight: 60;
+    border: 10px solid;
+    border-color: grey;
+    border-radius: 5%;
+}
+
+body{
+    background-image: url(Imagenes/Login.avif);
+    height: 100vh;
+    
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"]{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     margin: 10px 0;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 200px;
+    padding-left: 40px;
+}
+    
+
+.btn{
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    padding-left: 200px;
+}
+
+.btn:hover{
+    background-color: grey;
+    color: white;
+}
+
+
