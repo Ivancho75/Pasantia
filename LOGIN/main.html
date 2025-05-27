@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina principal</title>
+
+</head>
+
+<body>
+    <h1>Bienvenido a la página principal</h1>
+    <h2 id="nombre"></h2>
+    <h2 id="email"></h2>
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // para mostrar el nombre del usuario
+        const user = JSON.parse(localStorage.getItem("usuario"));
+        console.log(user);
+        if (user) {
+            document.getElementById('nombre').textContent = user.usuario.username
+            document.getElementById('email').textContent = user.usuario.email
+        }else {
+            document.getElementById('nombre').textContent = "Usuario y email no encontrado";
+        }
+    });
+</script>
+</html>
+
+
