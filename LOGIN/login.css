@@ -13,11 +13,12 @@
     justify-content: center;
     align-items: center;
     height: 40vh;
+    width: 100%;
     font-weight: 60;
     border: 10px solid;
-    border-color: grey;
     border-radius: 5%;
     border-color: white;
+    overflow: hidden;
 }
 
 body{
@@ -78,3 +79,33 @@ body{
     margin-top: 10px;
 }
 
+.container-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 100%;
+    font-weight: 60;
+    border: 10px solid;
+    border-radius: 5%;
+    border-color: white;
+    overflow: hidden;
+}
+
+
+/* Agrega una transición suave y mueve el formulario */
+.container-form {
+    transition: transform 0.3s;
+    transform: translateX(100%);
+}
+.container-form.active {
+    transform: translateX(0%); /* O la distancia que desees */
+}
+
+.container-form #Register {
+    transform: translateX(-50%);
+}
+
+.container-form #login-form {
+    transform: translateX(0%);
+}

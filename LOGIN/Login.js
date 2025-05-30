@@ -15,7 +15,7 @@ document.getElementById("login-form").addEventListener("submit", async function(
             // credentials: "include" // Include cookies in the request
         });
         const data = await response.json();
-        console.log(data);
+        //console.log(data);// -> Para ver valor de data
 
         if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -29,6 +29,18 @@ document.getElementById("login-form").addEventListener("submit", async function(
             alert("Invalid email or password. Please try again.");
         }
     } catch (error) {
-        alert("An error occurred. Please try again later.");
+        //alert("An error occurred. Please try again later.");
+        alert("Invalid email or password. Please try again.");
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const btn = document.getElementById("register-link");
+    const container = document.querySelector(".container-form");
+    if (btn) {
+        btn.addEventListener("click", function() {
+            container.classList.toggle("active");        
+        });
     }
 });
