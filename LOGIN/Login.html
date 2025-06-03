@@ -1,59 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
 
+   <!-- Agrego iconos -->
+  <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
 </head>
+
 <body>
-   <h1 class="title">Login</h1>
-    <div class="container">
-        <div class="container-form">
-          <form id="login-form">
-                <div class="input-group">
-                 <label for="email"></label>
-                 <input type="text" id="email" name="email" placeholder="Email" required>
-                </div>
-                <div class="input-group">
-                 <label for="password">:</label>
-                 <input type="password" id="password" name="password" placeholder="Password" required>
-                </div>
-                <div class="remember-me">
+  <div class="container">
+    <div class="form-box login">
+      <form action="" id="login-form">
+        <h1>Inicie sesión</h1>
+        <div class="input-box">
+            <!--<label for="email"></label>-->
+          <input type="text" id="email" name="email" placeholder="Email" required>
+          <!--<input type="text" placeholder="Username" required>-->
+          <i class='bx  bx-envelope'></i> 
+        </div>
+        <div class="input-box">
+          <input type="password" id="password" name="password" placeholder="Contraseña" required>
+          <i class='bx  bx-lock'  ></i> 
+        </div>
+        <!--<div class="remember-me">
                     <input type="checkbox" id="remember-me" name="remember-me">
                     <label for="remember-me" style="color: white;">Remember Me</label>
-                </div>
-                <div class="forgot-password">
-                    <p><a href="forgot_password.html" style="color: white;">Forgot Password?</a></p>
-                </div>
-                <button type="submit" class="btn">Login</button>
-                <div class="register-link">
-                    <p style="color: white;">Don't have an account? <a id="register-link" href="#" style="color: white;">Register here</a></p>
-                </div>
-          </form>
-                  
-     </div>
-
-     <div class="container-form">
-          <form id="Register">
-                 <div class="input-group">
-                 <label for="username"></label>
-                 <input type="text" id="username" name="username" placeholder="Username" required>
-                </div>
-                <div class="input-group">
-                 <label for="email"></label>
-                 <input type="text" id="email1" name="email" placeholder="Email" required>
-                </div>
-                <div class="input-group">
-                 <label for="password">:</label>
-                 <input type="password" id="password1" name="password" placeholder="Password" required>
-                </div>
-                <button type="submit" class="btn">Register</button>
-          </form>
-     </div>
+                </div> -->
+        <div class="forgot-link"> 
+          <a href="" id="forgot-link">Olvido su contraseña?</a>
+        </div>
+        <button type="submit" class="btn">Iniciar Sesión</button>
+        <!--<p>or login with social platforms</p>
+        <div class="social-icons">
+          <a href="#"><i class='bx  bx-alien'></i> </a>
+          <a href="#"><i class='bx  bx-van'  ></i> </a>
+          <a href=""><i class='bx  bx-hashtag'  ></i> </a>
+        </div> -->
+      </form>
     </div>
-     <script src="Login.js"></script>
 
+    <div class="form-box register">
+      <form action="" id="register-form">
+        <h1>Registro</h1>
+        <div class="input-box">
+          <input type="text" placeholder="Usuario" required>
+          <i class='bx  bx-user'></i> 
+        </div>
+        <div class="input-box">
+            <!-- <input type="text" id="email" name="email" placeholder="Email" required> -->
+          <input type="email" placeholder="Email" required>
+          <i class='bx  bx-envelope'  ></i>  
+        </div>
+        <div class="input-box">
+          <input type="password" id="register-password" name="password" placeholder="Contraseña" required>
+          <i class='bx  bx-lock'  ></i> 
+        </div>
+        <button type="submit" class="btn">Registrarse</button>
+        <!--<p>or register with social platforms</p>
+        <div class="social-icons">
+          <a href="#"><i class='bx  bx-alien'></i> </a>
+          <a href="#"><i class='bx  bx-van'  ></i> </a>
+          <a href=""><i class='bx  bx-hashtag'  ></i> </a>
+        </div> -->
+      </form>
+    </div>
+
+    <div class="toggle-box">
+      <div class="toggle-panel toggle-left">
+        <h1>Hola, Bienvenido!</h1>
+        <p>No tienes una cuenta?</p>
+        <button class="btn register-btn">Registrarse</button>
+      </div>
+      <div class="toggle-panel toggle-right">
+        <h1>Bienvenido de nuevo!</h1>
+        <p>¿Ya tienes una cuenta?</p>
+        <button class="btn login-btn">Iniciar sesión</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+
+ 
 </body>
 </html>
