@@ -4,45 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina principal</title>
+    <link rel="stylesheet" href=main.css>
 
 </head>
 
-<style>
-    body {
-        /*background-image: url('Imagenes/F1.avif');*/
-        background-image: url('Imagenes/Estadio.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        min-height: 100vh;
-        padding: 0;
-    }
-    h1, h2 {
-        color: white;
-        text-shadow: 2px 2px 4px #000;
-    }
-</style>
-
-
 <body>
     <h1>Hacete Socio</h1>
-    <h2 id="nombre"></h2>
-    <h2 id="email"></h2>
-</body>
+    <!--<h2 id="nombre"></h2>
+    <h2 id="email"></h2> -->
+    <div class="container"></div>
+    <div class="form-box">
+        <form id="formulario">
+            <div class="input-box">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+                <i class='bx bx-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" placeholder="Fecha de Nacimiento" required>
+                <i class='bx bx-calendar'></i>
+                <select id="sexo" name="sexo" required>
+                    <option value="" disabled selected>Sexo</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">No binario</option>
+                </select>
+                <select id="documento" name="documento" required>
+                    <option value="" disabled selected>Documento</option>
+                    <option value="ci">C.I.</option>
+                    <option value="dni">DNI</option>
+                    <option value="lc">L.C.</option>
+                    <option value="le">L.E.</option>
+                    <option value="pasaporte">PAS.</option>
+                </select>
+                <input type="number" id="numero" name="numero" placeholder="Número" required>
+            </div>
+            <div class="input-box">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <i class='bx bx-envelope'></i>
+                <input type="text" id="confirmar-email" name="confirmar-email" placeholder="Confirmar Email" required>
+                <i class='bx bx-envelope'></i> 
+            </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // para mostrar el nombre del usuario
-        const user = JSON.parse(localStorage.getItem("usuario"));
-        console.log(user);
-        if (user) {
-            document.getElementById('nombre').textContent = user.usuario.username + "    -> Traido de la API"
-            document.getElementById('email').textContent = user.usuario.email + "    -> Traido de la API"
-        }else {
-            document.getElementById('nombre').textContent = "Usuario y email no encontrado";
-        }
-    });
-</script>
+            <div class="input-box">
+                <input type="tel" id="cod-area" name="cod-area" placeholder="Cod. área" required>
+                <i class='bx bx-phone'></i>
+                <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required>
+                <i class='bx bx-phone'></i>
+                <input type="tel" id="cod-area1" name="cod-area1" placeholder="Cod. área" required>
+                <i class='bx bx-phone'></i>
+                <input type="tel" id="celular" name="celular" placeholder="Celular" required>
+                <i class='bx bx-phone'></i>
+            </div>
+        </div>
+
+        <div class="toggle-box">
+            <button class="btn">Continuar</button>
+        </div>
+
+  <script src="main.js"></script>
+
+</body>
 </html>
 
 

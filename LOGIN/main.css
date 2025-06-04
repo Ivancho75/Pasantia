@@ -1,0 +1,113 @@
+body {
+    /* background-image: url('Imagenes/F1.avif');*/
+    background-image: url('Imagenes/Estadio.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+     min-height: 100vh;
+     padding: 0;
+ }
+    
+.form-box {
+     border: 3px solid #ffcc00;
+     position: relative;
+     max-width: 100%;
+     margin: 40px auto;
+     padding: 24px;
+     background: #fff;
+     border-radius: 8px;
+     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+ }
+
+.form-box::before {
+     content: "";
+     display: block;
+     position: absolute;
+     top: -40px;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 80px;
+     height: 85px;
+     background: url('Imagenes/escudorc.png') no-repeat center/contain;
+     /*background: url('Imagenes/escudovd.jpg') no-repeat center/contain;*/
+    border-radius: 50%;
+    border: 3px solid #003366;
+    background-color: #fff;
+     z-index: 2;
+}
+
+.input-box input,
+.input-box select {
+    background: #f8f8f8;
+    color: #003366;
+    font-weight: 500;
+    transition: border 0.2s;
+    flex: 1;
+    padding: 10px 36px 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+     font-size: 1rem;
+}
+
+.input-box input:focus,
+.input-box select:focus {
+    border-color: #ffcc00;
+    outline: none;
+    background: #fffbe6;
+    }
+
+.btn {
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    width: 100%;
+    padding: 12px;
+    background: #0078d4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+
+.btn:hover {
+    color: #ffcc00;
+    background: #005fa3;
+}
+
+h1, h2 {
+        color: white;
+        text-shadow: 2px 2px 4px #000;
+        text-align: center;
+}
+
+
+.input-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    position: relative;
+    width: 350px;
+}
+
+.input-box i {
+    position: absolute;
+    right: 12px;
+    color: #888;
+    pointer-events: none;
+}
+
+@media (max-width: 480px) {
+        .form-box {
+            padding: 18px 6px;
+            max-width: 98vw;
+        }
+        .input-box {
+            width: 100%;
+        }
+    }
+
+
+
