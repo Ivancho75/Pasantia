@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-/* Reset some default styles */
+/* Reseteo algunos estilos por defecto */
 * {
   margin: 0;
   padding: 0;
@@ -14,8 +14,8 @@ body  {
   align-items: center;
   min-height: 100vh;
   background-image: url(Imagenes/Login.avif);
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .container{
@@ -124,7 +124,7 @@ text-decoration: none;
   margin: 15px 0;
 }
 
-.social-icons{
+/*.social-icons{
   display: flex;
   justify-content: center;
 }
@@ -138,7 +138,7 @@ text-decoration: none;
   color: #333;
   text-decoration: none;
   margin: 0 8px;
-}
+}*/
 
 .toggle-box{
   position: absolute;
@@ -211,7 +211,7 @@ text-decoration: none;
 
 @media screen and (max-width:650px) {
   .container{
-    height: calc(100vh-40px);
+    height: calc(100vh - 40px);
   }
 
   .form-box{
@@ -254,11 +254,11 @@ text-decoration: none;
   }
 
   .toggle-panel.toggle-right{
-    top: 0;
+    right: 0;
     bottom: -30%;
   }
 
-  .container .toggle-panel.toggle-right{
+  .container.container.active .toggle-panel.toggle-right{
     bottom: 0;
 
   }
