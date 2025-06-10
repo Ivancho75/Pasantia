@@ -1,0 +1,105 @@
+/* Register.css */
+.register-form {
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    margin: 3rem auto;
+    max-width: 400px;
+    transition: box-shadow 0.3s;
+    border: #fff solid 10px;
+    color: white;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.register-form:hover {
+    box-shadow: 0 12px 48px rgba(44, 62, 80, 0.28), 0 2px 8px rgba(44, 62, 80, 0.15);
+}
+
+.register-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.register-label {
+    font-size: 1.08rem;
+    color: #e0e6ed;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.register-input {
+    padding: 12px 14px;
+    border: 1.5px solid #bfc9d1;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    transition: border 0.2s, background 0.2s;
+}
+
+.register-input:focus {
+    border-color: #5b9df9;
+    outline: none;
+    background: rgba(255,255,255,0.18);
+}
+
+.register-button {
+    margin-top: 14px;
+    padding: 14px 0;
+    background: linear-gradient(90deg, #5b9df9 0%, #3a8dde 100%);
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.12);
+}
+
+.register-button:hover {
+    background: linear-gradient(90deg, #3a8dde 0%, #5b9df9 100%);
+    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.18);
+}
+
+.register-error {
+    color: #fff;
+    background: rgba(231, 76, 60, 0.85);
+    border: 1px solid #f5c6cb;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(231,76,60,0.12);
+}
+
+.register-link {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 1rem;
+    color: #e0e6ed;
+}
+
+.register-link a {
+    color: #5b9df9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: text-decoration 0.2s, color 0.2s;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
