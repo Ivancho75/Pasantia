@@ -1,16 +1,15 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './Login.css'
+import { useNavigate } from 'react-router-dom';
 
 
 
-function Login({onRegisterClick}) {
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
  
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -28,7 +27,8 @@ function Login({onRegisterClick}) {
       const data = await response.json();
       if (data) {
        //Renderizo MainPage
-       
+       //navigate('/MainPage')
+       prompt('Login correcto')
       } else {
         setError(data.message || 'Login failed');
       }
@@ -68,7 +68,15 @@ function Login({onRegisterClick}) {
           <a className='forgot-password'>Olvido su contraseña?</a>
           <div className='register'>
             <span>Tiene una cuenta?</span>
-            <a onClick={onRegisterClick}>Registrate</a>  
+            <a
+              onClick={() => {
+                if (onRegisterClick) onRegisterClick();
+                navigate('/register');
+              }}
+              style={{ cursor: 'pointer' }}
+            >
+              Registrate
+            </a>  
           </div>
           <button type="submit">Login</button>
         </form>
