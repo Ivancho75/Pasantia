@@ -6,6 +6,7 @@ import Register from './Register.jsx'
 import MainPage from './MainPage.jsx'
 //import Routes from './Routes.jsx'   para componente aparte
 import { BrowserRouter, Routes, Route } from 'react-router'
+import ForgotPassword from './ForgotPassword.jsx'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/main" element={<MainPage />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
       </Routes>
     </BrowserRouter>
     </>

@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './Register.css'
+import { useNavigate } from 'react-router-dom';
 
-export default function Register({onBack}) {
+
+export default function Register() {
     const [form, setForm] = useState({
         username: '',
         email: '',
@@ -10,6 +12,7 @@ export default function Register({onBack}) {
     });
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -80,7 +83,10 @@ export default function Register({onBack}) {
             </div>
             <div className="register-actions">
                 <button type="submit" className="register-btn">Registrarse</button>
-                <button type="button" className="register-back-btn" onClick={onBack}>Volver al Login</button>
+                <button type="button" className="register-back-btn" 
+                onClick={() => {
+                navigate('/');
+              }}>Volver al Login</button>
             </div>
         </form></>
     );

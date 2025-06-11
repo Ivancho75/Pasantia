@@ -27,7 +27,7 @@ function Login() {
       const data = await response.json();
       if (data) {
        //Renderizo MainPage
-       //navigate('/MainPage')
+       navigate('/main')
        prompt('Login correcto')
       } else {
         setError(data.message || 'Login failed');
@@ -65,12 +65,16 @@ function Login() {
             />
           </div>
           {error && <div className="error">{error}</div>}
-          <a className='forgot-password'>Olvido su contraseña?</a>
+          <a className='forgot-password'
+          onClick={() => {
+                navigate('/forgotPassword');
+              }}
+              style={{ cursor: 'pointer' }}>Olvido su contraseña?
+          </a>
           <div className='register'>
             <span>Tiene una cuenta?</span>
             <a
               onClick={() => {
-                if (onRegisterClick) onRegisterClick();
                 navigate('/register');
               }}
               style={{ cursor: 'pointer' }}
