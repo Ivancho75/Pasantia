@@ -1,1 +1,133 @@
 /*Estilos de MainPage.jsx*/
+.mainpage-background {
+    background-image: url(assets/Estadio.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
+.hacete-socio-container {
+    width: 1200px;
+    margin: 40px auto;
+    padding: 32px 28px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.hacete-socio-container h1 {
+    margin-bottom: 24px;
+    font-size: 2rem;
+    color: #2c3e50;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hacete-socio-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    /*flex-direction: column;*/
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #34495e;
+    font-weight: 500;
+    align-content: center;
+}
+
+.form-group input,.form-group select {
+    padding: 10px 12px;
+    border: 1px solid #bfc9d1;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #2980b9;
+}
+
+.btn-asociate {
+    margin-top: 10px;
+    padding: 12px 0;
+    background: linear-gradient(90deg, #2980b9 0%, #6dd5fa 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-asociate:hover {
+    background: linear-gradient(90deg, #2574a9 0%, #53c6f7 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+.btn-cerrar {
+    margin-top: 8px;
+    padding: 10px 0;
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-cerrar:hover {
+    background: #c0392b;
+    transform: translateY(-2px) scale(1.03);
+}
+
+.mensaje-exito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 24px 0;
+}
+
+.mensaje-exito h2 {
+    color: #27ae60;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.mensaje-exito button {
+    padding: 10px 24px;
+    background: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.mensaje-exito button:hover {
+    background: #2574a9;
+}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './Login.css'
 import { useNavigate } from 'react-router-dom';
+import Modal from './Modal.jsx'
 
 
 
@@ -26,14 +27,15 @@ function Login() {
       }
       const data = await response.json();
       if (data) {
-       //Renderizo MainPage
-       navigate('/main')
-       prompt('Login correcto')
+        // Renderizo MainPage
+        navigate('/main');
+        prompt('Login correcto')
       } else {
         setError(data.message || 'Login failed');
       }
     } catch (err) {
       setError('Invalid email or password');
+      Modal.show({ message: 'Login incorrecto' });
     }
   };
 
