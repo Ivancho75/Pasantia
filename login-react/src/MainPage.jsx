@@ -32,6 +32,9 @@ function MainPage(){
         
     };
 
+     //para mostrar el nombre del usuario
+    const user = JSON.parse(localStorage.getItem("usuario"));
+
     return (
         <div className="mainpage-background">
             <div className="hacete-socio-container">
@@ -48,9 +51,10 @@ function MainPage(){
                             <input
                                 type="text"
                                 name="nombre"
-                                value={form.nombre}
+                                value={form.nombre = user.usuario.username}
                                 onChange={handleChange}
                                 required
+                                disabled
                             />
                             <label>Apellido</label>
                             <input
@@ -100,17 +104,19 @@ function MainPage(){
                             <input
                                 type="email"
                                 name="email"
-                                value={form.email}
+                                value={form.email = user.usuario.email}
                                 onChange={handleChange}
                                 required
+                                disabled
                             />
                             <label>Confirmar Email</label>
                             <input
                                 type="email"
                                 name="confirmEmail"
-                                value={form.confirmEmail}
+                                value={form.confirmEmail = user.usuario.email}
                                 onChange={handleChange}
                                 required
+                                disabled
                             />
                         </div>
                         <div className="form-group">

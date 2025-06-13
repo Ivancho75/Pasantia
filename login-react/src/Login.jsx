@@ -10,7 +10,8 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
- 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -27,8 +28,11 @@ function Login() {
       }
       const data = await response.json();
       if (data) {
+        //Guardo datos
+        localStorage.setItem("usuario", JSON.stringify(data));
         // Renderizo MainPage
         navigate('/main');
+        //Mostrar modal
         prompt('Login correcto')
       } else {
         setError(data.message || 'Login failed');
