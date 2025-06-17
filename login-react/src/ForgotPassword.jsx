@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import './ForgotPassword.css'
 import {useNavigate} from 'react-router-dom'
+import Modal from './Modal.jsx';    
 
 function ForgotPassword() {
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,7 +27,16 @@ function ForgotPassword() {
                     Si el correo existe, recibirás instrucciones para restablecer tu contraseña.
                 </div>
             ) : (
-                <form className="forgot-password-form" onSubmit={handleSubmit}>
+                <form
+                    className="forgot-password-form"
+                    onSubmit={e => {
+                        handleSubmit(e);
+                        if (email) {
+                            setIsModalOpen(true);
+                            setSubmitted(true);
+                        }
+                    }}
+                >
                     <label htmlFor="email">Correo electrónico:</label>
                     <input
                         type="email"
@@ -48,6 +59,18 @@ function ForgotPassword() {
             >
                 Volver al Login
             </button>
+
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                <h2>Se envió correo para restablecer contraseña</h2>
+                <button
+                    onClick={() => {
+                        setIsModalOpen(false);
+                        navigate("/");
+                    }}
+                >
+                    Cerrar
+                </button>
+            </Modal>
         </>
     );
 }

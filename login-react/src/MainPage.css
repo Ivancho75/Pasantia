@@ -1,6 +1,7 @@
 /*Estilos de MainPage.jsx*/
 .mainpage-background {
-    background-image: url(assets/Estadio.jpg);
+    /*background-image: url(assets/Estadio.jpg);*/
+    background-image: url(assets/F1.avif);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

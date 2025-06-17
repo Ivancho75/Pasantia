@@ -10,6 +10,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
 
   const handleSubmit = async (e) => {
@@ -30,16 +31,17 @@ function Login() {
       if (data) {
         //Guardo datos
         localStorage.setItem("usuario", JSON.stringify(data));
+        //Mostrar modal
+        //prompt('Login correcto')
         // Renderizo MainPage
         navigate('/main');
-        //Mostrar modal
-        prompt('Login correcto')
       } else {
         setError(data.message || 'Login failed');
       }
     } catch (err) {
-      setError('Invalid email or password');
-      Modal.show({ message: 'Login incorrecto' });
+      //setError('Invalid email or password');
+      // Mostrar modal de error
+      setIsModalOpen(true);
     }
   };
 
@@ -91,6 +93,12 @@ function Login() {
           <button type="submit">Login</button>
         </form>
       </div>
+
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <h2>Error</h2>
+        <p>Usuario o contraseña inválidos</p>
+        <button onClick={() => setIsModalOpen(false)} style={{ color: 'red' }}>Vuelva a intentar</button>
+      </Modal>
     </>
   );
 }

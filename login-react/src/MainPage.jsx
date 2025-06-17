@@ -3,6 +3,7 @@ import './MainPage.css'
 import { useNavigate } from 'react-router'
 
 
+
 function MainPage(){
     const navigate = useNavigate()
     const [form, setForm] = useState({
