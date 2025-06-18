@@ -103,3 +103,31 @@
     color: #fff;
 }
 
+@media (max-width: 600px) {
+    .register-form {
+        max-width: 95vw;
+        width: 100%;
+        padding: 1.2rem 0.7rem;
+        margin: 1.5rem auto;
+        border-width: 4px;
+    }
+
+    .register-title {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+
+    .register-input {
+        font-size: 0.98rem;
+        padding: 10px 10px;
+    }
+
+    .register-button {
+        font-size: 1rem;
+        padding: 12px 0;
+    }
+
+    .register-link {
+        font-size: 0.95rem;
+    }
+}
