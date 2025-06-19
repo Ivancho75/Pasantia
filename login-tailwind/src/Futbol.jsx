@@ -36,11 +36,11 @@ export default function Futbol() {
             fecha: "2025-06-16"
         },
         {
-            equipoA: "Boca Juniors",
-            equipoB: "River Plate",
-            marcador: "1 - 1",
-            torneo: "Liga Profesional Argentina",
-            fecha: "2024-06-09"
+            equipoA: "Villa Dalmine",
+            equipoB: "Acassuso",
+            marcador: "1 - 2",
+            torneo: "Primera B metropolitana",
+            fecha: "2024-06-14"
         },
         {
             equipoA: "Boca Juniors",
@@ -68,7 +68,7 @@ export default function Futbol() {
     // Noticias 
     const noticias = [
         {
-            titulo: "Real Madrid ficha a una joven promesa",
+            titulo: "Real Madrid ficha a joven promesa",
             resumen: "El club blanco ha anunciado la incorporación de un delantero de 17 años.",
             fecha: "2025-06-19"
         },
@@ -164,7 +164,7 @@ export default function Futbol() {
                         <h2 className="text-2xl font-bold text-blue-800 mb-4">Últimas Noticias</h2>
                         <ul className="space-y-4">
                             {noticias.map(noticia => (
-                                <li key={noticia.titulo} className="bg-blue-50 rounded-lg p-4 shadow border border-blue-100 hover:cursor-pointer transition-transform transform hover:scale-105 ">
+                                <li key={noticia.titulo} className="bg-blue-50 rounded-lg p-4 shadow border border-blue-100 hover:cursor-pointer transition-transform transform hover:scale-105">
                                     <div className="flex justify-between items-center mb-1">
                                         <span className="font-semibold text-blue-900">{noticia.titulo}</span>
                                         <span className="text-xs text-blue-400">{noticia.fecha}</span>
