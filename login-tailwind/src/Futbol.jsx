@@ -1,4 +1,3 @@
-import Routes from './Routes.jsx';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import goleador from './assets/goleador.jpg'; // traigo foto goleador

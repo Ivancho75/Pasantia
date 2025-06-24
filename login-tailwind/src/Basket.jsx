@@ -8,13 +8,13 @@ import liga from './assets/logoliga.png';
 export default function Basket() {
     const navigate = useNavigate();
 
-     React.useEffect(() => {
-         // Elimino el scroll de la página
-         document.body.style.overflow = 'hidden';
-         return () => {
-             document.body.style.overflow = '';
-         };
-     }, []);
+    //  React.useEffect(() => {
+    //       //Elimino el scroll de la página
+    //     document.body.style.overflow = 'hidden';
+    //      return () => {
+    //          document.body.style.overflow = '';
+    //      };
+    //  }, []);
 
     // Secciones
     const secciones = [
@@ -61,26 +61,52 @@ export default function Basket() {
                 {/* Tarjetas de ligas */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
                     {/* NBA */}
-                    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+                    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center w-full">
                         <img
                             src={nba}
                             alt="NBA Logo"
                             className="w-20 h-20 mb-4"
                         />
                         <h2 className="text-2xl font-bold text-blue-800 mb-2">NBA</h2>
-                        <p>Estadisticas, resultados</p>
-                        <thead>
-                            <tr>
-                                <th className="px-4 py-2 text-left">Equipo</th>
-                                <th className="px-4 py-2 text-left">Partidos</th>
-                                <th className="px-4 py-2 text-left">Victorias</th>
-                                <th className="px-4 py-2 text-left">Derrotas</th>
-                                <th className="px-4 py-2 text-left">Puntos</th>
-                            </tr>
-                        </thead>
-                        
+                        <p className="mb-4">Últimos partidos destacados</p>
+                        {/* Simulación de partidos recientes */}
+                        <table className="min-w-full text-sm mb-2">
+                            <thead>
+                                <tr>
+                                    <th className="px-4 py-2 text-left">Equipo Local</th>
+                                    <th className="px-4 py-2 text-left">Marcador</th>
+                                    <th className="px-4 py-2 text-left">Equipo Visitante</th>
+                                    <th className="px-4 py-2 text-left">Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td className="px-4 py-2">Lakers</td>
+                                    <td className="px-4 py-2">112 - 108</td>
+                                    <td className="px-4 py-2">Warriors</td>
+                                    <td className="px-4 py-2">12/06/2025</td>
+                                </tr>
+                                <tr>
+                                    <td className="px-4 py-2">Celtics</td>
+                                    <td className="px-4 py-2">99 - 105</td>
+                                    <td className="px-4 py-2">Heat</td>
+                                    <td className="px-4 py-2">11/06/2025</td>
+                                </tr>
+                                <tr>
+                                    <td className="px-4 py-2">Bucks</td>
+                                    <td className="px-4 py-2">120 - 115</td>
+                                    <td className="px-4 py-2">Suns</td>
+                                    <td className="px-4 py-2">10/06/2025</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button
+                            onClick={() => window.open('https://www.nba.com/games', '_blank')}
+                            className="mt-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded transition"
+                        >
+                            Ver más partidos
+                        </button>
                     </div>
-                    {/* Liga Nacional */}
                     <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
                         <img
                             src={liga}
@@ -89,7 +115,44 @@ export default function Basket() {
                         />
                         <h2 className="text-2xl font-bold text-blue-800 mb-2">Liga Nacional</h2>
                         <p>Partidos</p>
+                        <table className="min-w-full text-sm mb-2">
+                            <thead>
+                                <tr>
+                                    <th className="px-4 py-2 text-left">Equipo Local</th>
+                                    <th className="px-4 py-2 text-left">Marcador</th>
+                                    <th className="px-4 py-2 text-left">Equipo Visitante</th>
+                                    <th className="px-4 py-2 text-left">Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td className="px-4 py-2">Ferro</td>
+                                    <td className="px-4 py-2">80 - 79</td>
+                                    <td className="px-4 py-2">Boca</td>
+                                    <td className="px-4 py-2">24/06/2025</td>
+                                </tr>
+                                <tr>
+                                    <td className="px-4 py-2">Platense</td>
+                                    <td className="px-4 py-2">90 - 85</td>
+                                    <td className="px-4 py-2">Obras</td>
+                                    <td className="px-4 py-2">23/06/2025</td>
+                                </tr>
+                                <tr>
+                                    <td className="px-4 py-2">Atenas</td>
+                                    <td className="px-4 py-2">79 - 85</td>
+                                    <td className="px-4 py-2">San Lorenzo</td>
+                                    <td className="px-4 py-2">22/06/2025</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button
+                            onClick={() => window.open('https://www.laliganacional.com.ar/', '_blank')}
+                            className="mt-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1 px-4 rounded transition"
+                        >
+                            Ver más partidos
+                        </button>
                     </div>
+                    
                 </div>
 
                 {/* Noticias destacadas */}
@@ -112,7 +175,7 @@ export default function Basket() {
                 </section>
             </main>
 
-            <div className="flex justify-center pb-8">
+            <div className="flex justify-center pb-8" style={{ marginTop: '-10px' }}>
                 <button
                     onClick={() => navigate('/')}
                     className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-8 rounded-full shadow transition-all duration-200"
