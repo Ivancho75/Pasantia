@@ -1,7 +1,21 @@
 import {useForm, FormProvider, useFormContext} from "react-hook-form"
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function CalleAltura() {
     const { register, formState: { errors } } = useFormContext()
+    const [calles, setCalles] = useState([]);
+ 
+    useEffect(() => {
+      axios.get('http://testiis01.campana.gov.ar/Municipalidad.Campana.Api/api/commons/calles')
+        .then(response => {
+          setCalles(response.data);
+        })
+        .catch(error => {
+          console.error('Error fetching calles:', error);
+       });
+      }, []);
+
     return(
         <div>
                 <label htmlFor="calle" className="block text-blue-900 font-semibold mb-2">Calle*</label>
