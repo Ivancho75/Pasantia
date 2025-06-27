@@ -230,16 +230,30 @@ function App() {
           <div className='space-y-2'>
             <label htmlFor='datosChofer' className="block text-gray-700 mb-1">Datos Chofer*</label>
             <div className="flex flex-col sm:flex-row gap-8">
+              <div className='flez flex-col'>
               <input
                 id="datosChofer"
-                {...register("datosChofer")}
+                {...register("datosChofer", { required: {
+                  value:true,
+                  message: 'El nombre es requerido'
+                }
+                })}
                 type="text"
                 className="w-full sm:w-80 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Nombre del Chofer"
               />
+              {errors.datosChofer && (
+                  <p className="text-red-500 text-xs mt-1">{errors.datosChofer.message}</p>
+                )}
+              </div>
+              <div className='flex flex-col'>
               <input
                 id='DNIChofer'
-                {...register("DNIChofer")}
+                {...register("DNIChofer", {required:{
+                  value: true,
+                  message: 'El DNI es requerido'
+                }
+                })}
                 type="text"
                 inputMode="numeric"
                 pattern="\d{1,2}\.?\d{3}\.?\d{3}"
@@ -271,32 +285,57 @@ function App() {
                 className="w-full sm:w-80 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="DNI del Chofer"
               />
+              {errors.DNIChofer && (
+                  <p className="text-red-500 text-xs mt-1">{errors.DNIChofer.message}</p>
+                )}
+            </div>
             </div>
             <input
               id='patente'
-              {...register("patente")}
+              {...register("patente",{required: {
+                value:true,
+                message: 'La patente es requerida'
+              }
+              })}
               type="text"
-              className="w-full sm:w-80 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full sm:w-80 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 mb-0"
               placeholder="Patente del Camión"
               maxLength={7}
             />
+            {errors.patente && (
+                  <p className="text-red-500 text-xs mt-1">{errors.patente.message}</p>
+                )}
           </div>
           <div className='space-y-2'>
             <label htmlFor='logistica' className="block text-gray-700 mb-1">Logística*</label>
             {/* Cambiar a tipo desplegable */}
             <div className="flex flex-col sm:flex-row gap-8">
+              <div className='flex flex-col'>
               <select
                 id="tipoVolquete"
-                {...register("tipoVolquete")}
+                {...register("tipoVolquete", { required: {
+                  value: true,
+                  message: 'El tipo de volquete es requerido'
+                }
+                })}
                 className="w-full sm:w-80 px-3 py-2 border border-gray-300 text-gray-500 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">Tipo volquete</option>
                 <option value="chico">Aridos</option>
                 <option value="mediano">Ramas</option>
               </select>
+              {errors.tipoVolquete && (
+                  <p className="text-red-500 text-xs mt-1">{errors.tipoVolquete.message}</p>
+                )}
+              </div>
+              <div className='flex flex-col'>
               <input
                 id='volqueteNumero'
-                {...register("volqueteNumero")}
+                {...register("volqueteNumero", {required: {
+                  value: true,
+                  message: 'El número de volquete es requerido'
+                }
+                })}
                 type="text"
                 className="w-full sm:w-80 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Volquete N°"
@@ -320,14 +359,25 @@ function App() {
                   }
                 }}
               />
+              {errors.volqueteNumero && (
+                  <p className="text-red-500 text-xs mt-1">{errors.volqueteNumero.message}</p>
+                )}
+            </div>
             </div>
             <input
               id='destinoFinal'
-              {...register("destinoFinal")}
+              {...register("destinoFinal", { required: {
+                value: true,
+                message: 'El destino final es requerido'
+              }
+              })}
               type="text"
-              className="w-full sm:w-80 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full sm:w-80 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 mb-0"
               placeholder="Destino final del material"
             />
+            {errors.destinoFinal && (
+                  <p className="text-red-500 text-xs mt-1">{errors.destinoFinal.message}</p>
+                )}
           </div>
           <div className='space-y-2'>
             <label htmlFor='datosSolicitante' className="block text-gray-700 mb-1">Datos Solicitante</label>
