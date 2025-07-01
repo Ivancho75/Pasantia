@@ -14,15 +14,27 @@ import DatosSolic from './DatosSolic.jsx';
 import CalleAltura from './CalleAltura.jsx';
 import Credenciales from './credenciales.jsx';
 
+import * as yup from 'yup';
+import {yupResolver} from '@hookform/resolvers/yup';
+
+
 function App() {
-  const methods = useForm();
+  // const methods = useForm({
+  //   resolver: yupResolver(schema),
+  // });
+  const methods = useForm()
   const { register, handleSubmit, formState: { errors } } = methods;
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+//Para probar funcionamiento
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // };
 
    const [showCredenciales, setShowCredenciales] = useState(false);
+
+   const schema = yup.object().shape({
+    destinoFinal: yup.number().positive().required(),
+   });
 
   // Fondo de pantalla con imagen de volquete y overlay
 
@@ -43,7 +55,9 @@ function App() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                handleSubmit(() => setShowCredenciales(true))(e);
+                setShowCredenciales(false); 
+                // setTimeout(() => setShowCredenciales(true), 0); 
+                handleSubmit(() => {setTimeout(() => setShowCredenciales(true), 0);})(e);
               }}
               className="space-y-8"
             >

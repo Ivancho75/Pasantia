@@ -8,6 +8,14 @@ function Registro() {
 
     if (!show) return null;
 
+    const handleClose = () => {
+        setShow(false);
+        // Resetea el formulario si existe uno
+        const form = document.querySelector("form");
+        if (form) form.reset();
+
+    };
+
     return (
         <div className="fixed inset-0 z-[1000]" style={{ background: "rgba(0,0,0,0.5)" }}>
             <div className="flex items-center justify-center min-h-screen w-full">
@@ -24,7 +32,7 @@ function Registro() {
                     <h2 className="text-2xl font-semibold mb-4 text-green-500 text-center">Registro exitoso</h2>
                     <button
                         className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-                        onClick={() => setShow(false)}
+                        onClick={handleClose}
                     >
                         Cerrar
                     </button>

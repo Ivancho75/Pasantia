@@ -8,10 +8,31 @@ function Credenciales() {
     const [contrasena, setContrasena] = useState("");
     const [showModal, setShowModal] = useState(true);
     const [showRegistro, setShowRegistro] = useState(false);
+    const [error, setError] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setShowRegistro(true);
+        setError("");
+        try {
+            const response = await fetch("http://testiis01.campana.gov.ar/Municipalidad.Campana.Api/api/auth/munidigital/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: usuario, // <-- Cambiado de 'email' a 'usuario'
+                    password: contrasena // <-- Cambiado de 'password' a 'contrasena'
+                })
+            });
+            if (!response.ok) {
+                setError("Usuario o contraseña incorrectos.");
+                return;
+            }
+            // Aquí puedes guardar el token o manejar el login exitoso
+            setShowRegistro(true);
+        } catch (err) {
+            setError("Error al conectar con el servidor.");
+        }
     };
 
     if (!showModal) return null;
@@ -68,6 +89,9 @@ function Credenciales() {
                             Recordar credenciales
                         </label>
                     </div>
+                    {error && (
+                        <div className="mb-4 text-red-600 font-medium">{error}</div>
+                    )}
                     <div className="flex gap-2 items-center">
                         <button
                             type="submit"
