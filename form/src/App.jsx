@@ -10,8 +10,9 @@ import Logistica from './Logistica.jsx';
 import Localización from './Localización.jsx';
 import FechaEntrega from './FechaEntrega.jsx';
 import DatosChofer from './DatosChofer.jsx';
-import DatosSolic from './DatosSolic.jsx'
+import DatosSolic from './DatosSolic.jsx';
 import CalleAltura from './CalleAltura.jsx';
+import Credenciales from './credenciales.jsx';
 
 function App() {
   const methods = useForm();
@@ -21,7 +22,10 @@ function App() {
     console.log(data);
   };
 
+   const [showCredenciales, setShowCredenciales] = useState(false);
+
   // Fondo de pantalla con imagen de volquete y overlay
+
   return (
     <FormProvider {...methods}>
       <div
@@ -37,13 +41,14 @@ function App() {
           <div className="bg-white/90 p-10 rounded-2xl shadow-2xl w-full border border-blue-200">
             <h2 className="text-3xl font-extrabold mb-8 text-center text-blue-700 tracking-tight drop-shadow">Formulario de Volquetes</h2>
             <form
-              onSubmit={handleSubmit((data) => {
-                onSubmit({ ...data, localizacion: location });
-              })}
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit(() => setShowCredenciales(true))(e);
+              }}
               className="space-y-8"
             >
               {/* Fecha de Entrega */}
-               <FechaEntrega />
+              <FechaEntrega />
               {/* Calle y Altura */}
               <CalleAltura />
               {/* Localización */}
@@ -62,6 +67,10 @@ function App() {
                 Cargar credenciales
               </button>
             </form>
+            {/* Modal Credenciales */}
+            {showCredenciales && (
+              <Credenciales onClose={() => setShowCredenciales(false)} />
+            )}
           </div>
         </div>
       </div>
