@@ -24,12 +24,7 @@ function CalleAltura() {
                   <div className='flex flex-col'>
                     <select
                       id="calle"
-                      {...register("calle", {
-                        required: {
-                          value: true,
-                          message: 'La calle es requerida'
-                        }
-                      })}
+                      {...register("calle")}
                       className="w-full sm:w-80 px-3 py-2 border border-blue-200 text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50"
                     >
                       <option value="">Calle</option>
@@ -46,12 +41,7 @@ function CalleAltura() {
                   <div className="flex flex-col w-full sm:w-80">
                     <input
                       id="alturaCalle"
-                      {...register("alturaCalle", {
-                        required: {
-                          value: true,
-                          message: 'La altura es requerida.'
-                        }
-                      })}
+                      {...register("alturaCalle")}
                       type="text"
                       inputMode="numeric"
                       pattern="[0-9]*"

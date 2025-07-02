@@ -10,11 +10,7 @@ function DatosChofer (){
                   <div className='flex flex-col'>
                     <input
                       id="datosChofer"
-                      {...register("datosChofer", { required: {
-                        value:true,
-                        message: 'El nombre es requerido'
-                      }
-                      })}
+                      {...register("datosChofer")}
                       type="text"
                       className="w-full sm:w-80 px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50"
                       placeholder="Nombre del Chofer"
@@ -26,11 +22,7 @@ function DatosChofer (){
                   <div className='flex flex-col'>
                     <input
                       id='DNIChofer'
-                      {...register("DNIChofer", {required:{
-                        value: true,
-                        message: 'El DNI es requerido'
-                      }
-                      })}
+                      {...register("DNIChofer")}
                       type="text"
                       inputMode="numeric"
                       pattern="\d{1,2}\.?\d{3}\.?\d{3}"
@@ -66,11 +58,7 @@ function DatosChofer (){
                 </div>
                 <input
                   id='patente'
-                  {...register("patente",{required: {
-                    value:true,
-                    message: 'La patente es requerida'
-                  }
-                  })}
+                  {...register("patente")}
                   type="text"
                   className="w-full sm:w-80 px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50 mt-2"
                   placeholder="Patente del Camión"

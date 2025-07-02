@@ -10,12 +10,7 @@ function FechaEntrega (){
                 <div className='flex flex-col'>
                   <input
                     id="desde"
-                    {...register("desde", {
-                      required: {
-                        value: true,
-                        message: "La fecha de entrega es requerida"
-                      }
-                    })}
+                    {...register("desde")}
                     type="date"
                     className="w-full sm:w-80 px-3 py-2 border border-blue-200 text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50"
                   />
@@ -24,12 +19,7 @@ function FechaEntrega (){
                 <div className='flex flex-col'>
                   <input
                     id="hasta"
-                    {...register("hasta", {
-                      required: {
-                        value: true,
-                        message: "La fecha de salida es requerida"
-                      }
-                    })}
+                    {...register("hasta")}
                     type="date"
                     className="w-full sm:w-80 px-3 py-2 border border-blue-200 text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50"
                   />

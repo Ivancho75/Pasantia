@@ -10,16 +10,12 @@ function Logistica (){
                   <div className='flex flex-col'>
                     <select
                       id="tipoVolquete"
-                      {...register("tipoVolquete", { required: {
-                        value: true,
-                        message: 'El tipo de volquete es requerido'
-                      }
-                      })}
+                      {...register("tipoVolquete")}
                       className="w-full sm:w-80 px-3 py-2 border border-blue-200 text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50"
                     >
                       <option value="">Tipo volquete</option>
-                      <option value="chico">Aridos</option>
-                      <option value="mediano">Ramas</option>
+                      <option value="aridos">Aridos</option>
+                      <option value="ramas">Ramas</option>
                     </select>
                     {errors.tipoVolquete && (
                       <p className="text-red-500 text-xs mt-1">{errors.tipoVolquete.message}</p>
@@ -28,11 +24,7 @@ function Logistica (){
                   <div className='flex flex-col'>
                     <input
                       id='volqueteNumero'
-                      {...register("volqueteNumero", {required: {
-                        value: true,
-                        message: 'El número de volquete es requerido'
-                      }
-                      })}
+                      {...register("volqueteNumero")}
                       type="text"
                       className="w-full sm:w-80 px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50"
                       placeholder="Volquete N°"
@@ -61,11 +53,7 @@ function Logistica (){
                 </div>
                 <input
                   id='destinoFinal'
-                  {...register("destinoFinal", { required: {
-                    value: true,
-                    message: 'El destino final es requerido'
-                  }
-                  })}
+                  {...register("destinoFinal")}
                   type="text"
                   className="w-full sm:w-80 px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50 mt-2"
                   placeholder="Destino final del material"

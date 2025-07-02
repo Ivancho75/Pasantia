@@ -19,11 +19,75 @@ import {yupResolver} from '@hookform/resolvers/yup';
 
 
 function App() {
-  // const methods = useForm({
-  //   resolver: yupResolver(schema),
-  // });
-  const methods = useForm()
+
+    const schema = yup.object().shape({
+     desde: yup
+    .date()
+    .transform((value, originalValue) => {
+      return originalValue === '' ? undefined : new Date(originalValue);
+    })
+    .required('La fecha de entrega es requerida'),
+
+     hasta: yup
+     .date()
+    .transform((value, originalValue) => {
+      return originalValue === '' ? undefined : new Date(originalValue);
+    })
+    .required('La fecha de salida es requerida'),
+
+     calle: yup.
+     array().
+     transform((value,originalValue) => {
+      return originalValue === '' ? undefined : new Array(originalValue);
+     })
+     .required("La calle es requerida"),
+
+     alturaCalle: yup.number()
+     .transform((value,originalValue) => {
+      return originalValue === '' ? undefined : new Number(originalValue);
+     })
+     .required("La altura es requerida"),
+
+
+     datosChofer: yup.string().required("El nombre es requerido"),
+
+     DNIChofer: yup.string()
+     .transform((value,originalValue) => {
+      return originalValue === '' ? undefined : new String(originalValue);
+     })
+     .required("El DNI es requerido"),
+
+     patente: yup
+     .string()
+     .transform((value,originalValue) => {
+      return originalValue === '' ? undefined : new String(originalValue);
+     })
+     .required("La patente es requerida"),
+
+     tipoVolquete: yup.
+     array().
+     transform((value,originalValue) => {
+      return originalValue === '' ? undefined : new Array(originalValue);
+     })
+     .required("El tipo de volquete es requerido"),
+
+     volqueteNumero: yup.number()
+     .positive()
+     .transform((value,originalValue) => {
+      return originalValue === '' ? undefined : new Number(originalValue);
+     })
+     .required("El numero de volquete es requerido"),
+
+     destinoFinal: yup.string().required("El destino final es requerido"),
+   });
+
+    const methods = useForm({
+      resolver: yupResolver(schema),
+    });
+  //const methods = useForm()
+
   const { register, handleSubmit, formState: { errors } } = methods;
+  
 
 //Para probar funcionamiento
   // const onSubmit = (data) => {
@@ -32,9 +96,6 @@ function App() {
 
    const [showCredenciales, setShowCredenciales] = useState(false);
 
-   const schema = yup.object().shape({
-    destinoFinal: yup.number().positive().required(),
-   });
 
   // Fondo de pantalla con imagen de volquete y overlay
 
@@ -56,7 +117,7 @@ function App() {
               onSubmit={(e) => {
                 e.preventDefault();
                 setShowCredenciales(false); 
-                // setTimeout(() => setShowCredenciales(true), 0); 
+                // setTimeout(() => setShowCredenciales(true), 0);   Actualizar estado instantaneo
                 handleSubmit(() => {setTimeout(() => setShowCredenciales(true), 0);})(e);
               }}
               className="space-y-8"
