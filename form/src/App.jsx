@@ -1,7 +1,7 @@
 import './App.css'
 import { set, useForm, FormProvider, useFormContext } from 'react-hook-form'
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios, { all } from 'axios';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import Volquete1 from './assets/volquete1.jpg';
@@ -19,6 +19,8 @@ import {yupResolver} from '@hookform/resolvers/yup';
 
 
 function App() {
+     const yesterday = new Date();
+     yesterday.setDate(yesterday.getDate() - 1); // Traigo día anterior 
 
     const schema = yup.object().shape({
      desde: yup
@@ -26,6 +28,7 @@ function App() {
     .transform((value, originalValue) => {
       return originalValue === '' ? undefined : new Date(originalValue);
     })
+    .min(yesterday, 'La fecha debe ser mayor a la actual')
     .required('La fecha de entrega es requerida'),
 
      hasta: yup
@@ -33,8 +36,9 @@ function App() {
     .transform((value, originalValue) => {
       return originalValue === '' ? undefined : new Date(originalValue);
     })
+    .min(yup.ref('desde'),'La fecha debe ser posterior a la de entrega')
     .required('La fecha de salida es requerida'),
-
+    
      calle: yup.
      array().
      transform((value,originalValue) => {
@@ -42,16 +46,19 @@ function App() {
      })
      .required("La calle es requerida"),
 
-     alturaCalle: yup.number()
+     alturaCalle: yup
+     .number()
      .transform((value,originalValue) => {
       return originalValue === '' ? undefined : new Number(originalValue);
      })
      .required("La altura es requerida"),
 
+     datosChofer: yup
+     .string()
+     .required("El nombre es requerido"),
 
-     datosChofer: yup.string().required("El nombre es requerido"),
-
-     DNIChofer: yup.string()
+     DNIChofer: yup
+     .string()
      .transform((value,originalValue) => {
       return originalValue === '' ? undefined : new String(originalValue);
      })
@@ -71,18 +78,22 @@ function App() {
      })
      .required("El tipo de volquete es requerido"),
 
-     volqueteNumero: yup.number()
+     volqueteNumero: yup
+     .number()
      .positive()
      .transform((value,originalValue) => {
       return originalValue === '' ? undefined : new Number(originalValue);
      })
      .required("El numero de volquete es requerido"),
 
-     destinoFinal: yup.string().required("El destino final es requerido"),
+     destinoFinal: yup
+     .string().
+     required("El destino final es requerido"),
    });
 
     const methods = useForm({
       resolver: yupResolver(schema),
+      mode: 'all',   //Para validar en todo momento
     });
   //const methods = useForm()
 
@@ -96,11 +107,9 @@ function App() {
 
    const [showCredenciales, setShowCredenciales] = useState(false);
 
-
-  // Fondo de pantalla con imagen de volquete y overlay
-
   return (
     <FormProvider {...methods}>
+      {/* Fondo de pantalla con imagen de volquete - overlay */}
       <div
         className="min-h-screen flex items-center justify-center py-10 relative"
         style={{

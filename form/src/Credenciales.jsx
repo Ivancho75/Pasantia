@@ -28,7 +28,7 @@ function Credenciales() {
                 setError("Usuario o contraseña incorrectos.");
                 return;
             }
-            // Aquí puedes guardar el token o manejar el login exitoso
+            //  guardar el token o manejar el login exitoso
             setShowRegistro(true);
         } catch (err) {
             setError("Error al conectar con el servidor.");
@@ -80,6 +80,9 @@ function Credenciales() {
                             />
                         </label>
                     </div>
+                    {error && (
+                        <div className="mb-4 text-red-600 font-medium">{error}</div>
+                    )}
                     <div className="mb-4 flex items-center">
                         <input
                             type="checkbox"
@@ -89,9 +92,6 @@ function Credenciales() {
                             Recordar credenciales
                         </label>
                     </div>
-                    {error && (
-                        <div className="mb-4 text-red-600 font-medium">{error}</div>
-                    )}
                     <div className="flex gap-2 items-center">
                         <button
                             type="submit"
