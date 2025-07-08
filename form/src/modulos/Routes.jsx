@@ -1,6 +1,6 @@
 import { BrowserRouter ,Routes, Route } from "react-router";
 
-import App from './App.jsx';
+import App from '../App.jsx';
 
 
 

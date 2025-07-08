@@ -1,20 +1,26 @@
 import {useForm, FormProvider, useFormContext} from "react-hook-form"
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useCalles } from "../hooks/useCalles.jsx";
 
 function CalleAltura() {
     const { register, formState: { errors } } = useFormContext()
     const [calles, setCalles] = useState([]);
  
-    useEffect(() => {
-      axios.get('http://testiis01.campana.gov.ar/Municipalidad.Campana.Api/api/commons/calles')
-        .then(response => {
-          setCalles(response.data);
-        })
-        .catch(error => {
-          console.error('Error fetching calles:', error);
-       });
-      }, []);
+    // useEffect(() => {
+    //   axios.get('http://testiis01.campana.gov.ar/Municipalidad.Campana.Api/api/commons/calles')
+    //     .then(response => {
+    //       setCalles(response.data);
+    //     })
+    //     .catch(error => {
+    //       console.error('Error fetching calles:', error);
+    //    });
+    //   }, []);
+
+    const {data, isLoading, error} = useCalles();
+    
+    if (isLoading) return <p> Cargando...</p>
+    if (error) return <p> Error: {Error.message}</p>
 
     return(
         <div>
@@ -28,7 +34,7 @@ function CalleAltura() {
                       className="w-full sm:w-80 px-3 py-2 border border-blue-200 text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50"
                     >
                       <option value="">Calle</option>
-                      {calles.map((calle) => (
+                      {data.map((calle) => (
                         <option key={calle.id} value={calle.descripcion}>
                           {calle.descripcion}
                         </option>
@@ -77,7 +83,7 @@ function CalleAltura() {
                     className="w-full sm:w-80 px-3 py-2 border border-blue-200 text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50"
                   >
                     <option value="">Entre calle 1</option>
-                    {calles.map((calle) => (
+                    {data.map((calle) => (
                       <option key={calle.id} value={calle.descripcion}>
                         {calle.descripcion}
                       </option>
@@ -89,7 +95,7 @@ function CalleAltura() {
                     className="w-full sm:w-80 px-3 py-2 border border-blue-200 text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50"
                   >
                     <option value="">Entre calle 2</option>
-                    {calles.map((calle) => (
+                    {data.map((calle) => (
                       <option key={calle.id} value={calle.descripcion}>
                         {calle.descripcion}
                       </option>

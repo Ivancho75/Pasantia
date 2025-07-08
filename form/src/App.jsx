@@ -5,14 +5,15 @@ import axios, { all } from 'axios';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import Volquete1 from './assets/volquete1.jpg';
-import Volquete2 from './assets/volquete2.jpg';
-import Logistica from './Logistica.jsx';
-import Localización from './Localización.jsx';
-import FechaEntrega from './FechaEntrega.jsx';
-import DatosChofer from './DatosChofer.jsx';
-import DatosSolic from './DatosSolic.jsx';
-import CalleAltura from './CalleAltura.jsx';
-import Credenciales from './credenciales.jsx';
+// import Volquete2 from './assets/volquete2.jpg'; no se usa al final
+import Logistica from './modulos/Logistica.jsx';
+import Localización from './modulos/Localización.jsx';
+import FechaEntrega from './modulos/FechaEntrega.jsx';
+import DatosChofer from './modulos/DatosChofer.jsx';
+import DatosSolic from './modulos/DatosSolic.jsx';
+import CalleAltura from './modulos/CalleAltura.jsx';
+import Credenciales from './modulos/Credenciales.jsx';
+
 
 import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
@@ -93,13 +94,11 @@ function App() {
 
     const methods = useForm({
       resolver: yupResolver(schema),
-      mode: 'all',   //Para validar en todo momento
+      mode: 'all',   //Para validar en todo momento 
     });
-  //const methods = useForm()
 
   const { register, handleSubmit, formState: { errors } } = methods;
   
-
 //Para probar funcionamiento
   // const onSubmit = (data) => {
   //   console.log(data);
